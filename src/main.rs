@@ -1,12 +1,13 @@
 use rand::prelude::*;
 
-static TYPE_ARRAY: &'static [char] = &['*', '+', '-', '~', '$', '^'];
-static TYPE_WEIGHT_ARRAY: &'static [u32] = &[20, 10, 15, 15, 20, 20];
-static TYPE_DEBT_ARRAY: &'static [u32] = &[5, 10, 3, 4, 3, 2];
+static TYPE_ARRAY: &'static [char] = &['*', '+', '-', '~', '$', '^'];   // chars to be used in map
+static TYPE_WEIGHT_ARRAY: &'static [u32] = &[20, 10, 15, 15, 20, 20];   // percent chance for char to be picked
+static TYPE_DEBT_ARRAY: &'static [u32] = &[5, 10, 3, 4, 3, 2];          // how much a chance a neighbor will continue the terrain over picking a new one
 
-const HEIGHT: usize = 128;
-const WIDTH: usize = 128;
-const EMPTY_TERRAIN: char = 'e';
+const HEIGHT: usize = 32;
+const WIDTH: usize = 32;
+const EMPTY_TERRAIN: char = 'e';    // used to detect if no terrain has been assigned
+
 
 fn main() {
     generate_node_map();
